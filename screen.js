@@ -446,8 +446,8 @@
         var idInput = $('drpc-client-id');
         if (idInput && document.activeElement !== idInput) idInput.value = cfg.client_id || '';
         setText('drpc-app-source', cfg.client_id
-            ? 'Using your own Discord app. Clear the field and Save to switch back to the official one.'
-            : 'Using the official Fee[dB]ack Discord app — nothing to set up.');
+            ? 'Using your own Discord app. Clear the field and Save to switch back to the inofficial one.'
+            : 'Using the inofficial Fee[dB]ack Discord app — nothing to set up.');
 
         var act = view.activity;
         setText('drpc-preview-kicker', act && act.type === 2 ? 'Listening to' : 'Playing a game');
