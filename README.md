@@ -1,26 +1,56 @@
 # Discord Rich Presence for Fee[dB]ack
 
-Readme generated with Claude
-
 Show what you're playing in [Fee[dB]ack](https://github.com/got-feedback/feedBack) on your Discord profile:
 the song, your instrument, your live score, and the album cover. Friends see it in your profile and the
 member list, and it updates as you play, pause, and browse.
 
 ```
 [album cover]  Playing Fee[dB]ack
-               Hidden in the Sand by Tally Hall
+               Title by Artist
                Bass Guitar • 12,345 pts (98.4%)
                0:15 elapsed
 ```
 
-- **No setup on Discord's side.** It ships with the official Fee[dB]ack Discord app; you flip one switch.
+Displays the activity happening within Fee[dB]ack such as searching the song library, practicing, or playing songs!
+
+---
+### Images
+
+Navigating the menu
+
+<img src="/readmeAssets/feedback_menu.png"/>
+
+Playing a song
+
+<img src="/readmeAssets/feedback_playing.png"/>
+
+Plugin menu
+
+<img src="/readmeAssets/feedback_plugin.png"/>
+
+---
+
+- **No setup on Discord's side.** You flip one switch.
 - **No extra software.** It runs inside Fee[dB]ack, with no Python packages to install and no helper app to launch.
 - **No changes to Fee[dB]ack.** It's a normal drop-in plugin.
 - **Opt-in and private by default.** Nothing reaches Discord until you turn it on.
 
 License: **AGPL-3.0-only**, same as Fee[dB]ack.
 
----
+## My description (ToxicFlame427)
+
+Developers installation instructions:
+1. Locate the directory to which Fee[dB]ack is installed
+2. Locate the the plugins folder for your particular installation (Linux Mint for me yielded the path `/opt/fee[dB]ack/resources/slopsmith`)
+3. Create a new folder named `discord_rpc` and copy the repository code into that folder
+4. Launch Fee[dB]ack and go to the Plugins tab. The 'pedal' for the plugin will be located under the "Tools" section. This is where the various settings can be configured.
+5. Play!
+
+The plugin is connected via an external app on the Discord Developers dashboard. The plugin allows you to configure your own client ApplicationID if you don't want to use the default one that I created.
+
+**NOTE:** So far I have only personally tested the plugin with Bass Guitar on Linux Mint. I assume they will work on Mac and Windows and with other instruments, but take that with a grain of salt.
+
+## Claude In-depth Description
 
 ## Contents
 
