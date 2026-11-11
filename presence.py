@@ -38,7 +38,7 @@ import re
 import threading
 import time
 
-# The official Fee[dB]ack Discord application. Application IDs are public
+# The inofficial Fee[dB]ack Discord application. Application IDs are public
 # identifiers (every Rich Presence game ships one) — this grants no control
 # over the app. Owned by a Discord Developer Team so it isn't tied to one
 # person; maintainers manage its name and art assets in the Developer Portal.
