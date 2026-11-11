@@ -1,0 +1,110 @@
+<!--
+  SPDX-License-Identifier: AGPL-3.0-only
+  Copyright (C) 2026 Fee[dB]ack contributors
+  Discord Rich Presence panel. Inert markup only: the host injects this via
+  innerHTML (scripts would not run), so all behaviour lives in screen.js.
+-->
+<div class="drpc max-w-3xl mx-auto px-4 py-6">
+  <header class="drpc-header">
+    <div>
+      <h1 class="drpc-title">Discord Rich Presence</h1>
+      <p class="drpc-sub">Show what you're playing on your Discord profile.</p>
+    </div>
+    <div id="drpc-status" class="drpc-status" data-state="unknown" role="status" aria-live="polite" aria-atomic="true">
+      <span class="drpc-dot" aria-hidden="true"></span>
+      <span>
+        <span id="drpc-status-text" class="drpc-status-text">Checking…</span>
+        <span id="drpc-status-detail" class="drpc-status-detail"></span>
+      </span>
+    </div>
+  </header>
+
+  <section class="drpc-card" aria-labelledby="drpc-preview-heading">
+    <div class="drpc-card-head">
+      <h2 id="drpc-preview-heading" class="drpc-h2">Live preview</h2>
+      <span id="drpc-preview-badge" class="drpc-badge">Not broadcasting</span>
+    </div>
+    <div id="drpc-preview" class="drpc-preview" data-live="idle">
+      <p id="drpc-preview-kicker" class="drpc-preview-kicker">Playing a game</p>
+      <div class="drpc-preview-body">
+        <div class="drpc-art" aria-hidden="true">
+          <span class="drpc-art-logo">F[dB]</span>
+          <img id="drpc-preview-cover" class="drpc-art-cover" hidden alt="" referrerpolicy="no-referrer">
+          <span id="drpc-preview-icon" class="drpc-art-small"></span>
+        </div>
+        <div class="drpc-lines">
+          <p class="drpc-line-app">Fee[dB]ack</p>
+          <p id="drpc-preview-details" class="drpc-line">Nothing to show</p>
+          <p id="drpc-preview-state" class="drpc-line drpc-dim"></p>
+          <div id="drpc-preview-progress" class="drpc-progress" hidden>
+            <span id="drpc-preview-elapsed">0:00</span>
+            <span class="drpc-bar" aria-hidden="true"><span id="drpc-preview-fill" class="drpc-bar-fill"></span></span>
+            <span id="drpc-preview-total">0:00</span>
+          </div>
+          <p class="drpc-line drpc-dim">
+            <span id="drpc-preview-time"></span>
+            <span id="drpc-preview-instrument" class="drpc-sr-only"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="drpc-card" aria-labelledby="drpc-settings-heading">
+    <h2 id="drpc-settings-heading" class="drpc-h2">Settings</h2>
+
+    <div class="drpc-row">
+      <div>
+        <p class="drpc-label" id="drpc-enabled-label">Broadcast Rich Presence</p>
+        <p class="drpc-help">Off by default. When on, your song, artist, instrument and score are shared with Discord.</p>
+        <p id="drpc-app-source" class="drpc-help"></p>
+      </div>
+      <button id="drpc-enabled" type="button" class="drpc-switch" role="switch"
+              aria-checked="false" aria-labelledby="drpc-enabled-label" data-on="0">
+        <span class="drpc-switch-knob" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="drpc-checks">
+      <label class="drpc-check"><input id="drpc-show-score" type="checkbox"> Show score &amp; accuracy</label>
+      <label class="drpc-check"><input id="drpc-show-tuning" type="checkbox"> Show tuning</label>
+      <label class="drpc-check"><input id="drpc-show-idle" type="checkbox"> Show presence in menus &amp; while paused</label>
+      <label class="drpc-check"><input id="drpc-show-cover" type="checkbox"> Show album cover</label>
+      <label class="drpc-check"><input id="drpc-show-timestamps" type="checkbox"> Show song timer</label>
+      <label class="drpc-check">Timer style
+        <select id="drpc-timer-style" class="drpc-input drpc-select">
+          <option value="elapsed">Count up — "Playing Fee[dB]ack"</option>
+          <option value="bar">Progress bar — "Listening to Fee[dB]ack"</option>
+        </select>
+      </label>
+    </div>
+    <p id="drpc-config-msg" class="drpc-help" role="status" aria-live="polite"></p>
+
+    <details class="drpc-setup">
+      <summary>Not showing up on Discord?</summary>
+      <ol>
+        <li>Use the Discord <strong>desktop app</strong> on this computer (not discord.com in a browser) and keep it open.</li>
+        <li>In Discord: <em>User Settings → Activity Privacy → Share your detected activities</em> must be on.</li>
+        <li>Fee[dB]ack must run directly on this computer — not in Docker or on a NAS.</li>
+        <li>Your status updates within a few seconds of changing screens or starting a song.</li>
+      </ol>
+    </details>
+
+    <details class="drpc-setup">
+      <summary>Advanced: use your own Discord app</summary>
+      <p class="drpc-help">For forks or custom branding. Create an app in the
+        <a href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer">Discord Developer Portal</a>,
+        upload Rich Presence art assets named <code>app_logo</code>, <code>guitar_icon</code>, <code>bass_icon</code>,
+        <code>drums_icon</code>, <code>keys_icon</code> and <code>vocals_icon</code>, then paste its Application ID here.</p>
+      <form id="drpc-client-form" class="drpc-row drpc-row-form" autocomplete="off">
+        <label class="drpc-label" for="drpc-client-id">Custom Application ID</label>
+        <div class="drpc-inline">
+          <input id="drpc-client-id" class="drpc-input" inputmode="numeric" pattern="\d{15,25}"
+                 maxlength="25" placeholder="Leave empty for the official app" spellcheck="false">
+          <button type="submit" class="drpc-btn">Save</button>
+        </div>
+      </form>
+    </details>
+
+  </section>
+</div>

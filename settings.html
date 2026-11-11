@@ -1,0 +1,21 @@
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<div class="space-y-2">
+  <p class="text-sm text-gray-400">
+    Connection status, the live preview and all Rich Presence options live on the
+    Discord panel. Settings are stored in <code>&lt;config_dir&gt;/discord_rpc.json</code>
+    and included in Settings export.
+  </p>
+  <button id="drpc-open-panel" type="button"
+          class="px-3 py-2 rounded bg-dark-600 hover:bg-dark-500 text-white text-sm">
+    Open Discord panel
+  </button>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('drpc-open-panel');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (typeof window.showScreen === 'function') window.showScreen('plugin-discord_rpc');
+    });
+  })();
+</script>

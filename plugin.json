@@ -1,0 +1,24 @@
+{
+  "id": "discord_rpc",
+  "name": "Discord Rich Presence",
+  "version": "1.0.0",
+  "private": false,
+  "license": "AGPL-3.0-only",
+  "description": "Shows what you're playing in Fee[dB]ack on your Discord profile — song, instrument, score and album cover.",
+  "category": "tools",
+  "icon": "assets/thumb.svg",
+  "nav": {
+    "label": "Discord",
+    "screen": "plugin-discord_rpc"
+  },
+  "screen": "screen.html",
+  "script": "screen.js",
+  "styles": "assets/discord-rpc.css",
+  "routes": "routes.py",
+  "settings": {
+    "html": "settings.html",
+    "server_files": [
+      "discord_rpc.json"
+    ]
+  }
+}
