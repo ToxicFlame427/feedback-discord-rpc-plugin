@@ -17,7 +17,7 @@ SETUP
 * Python packages: none beyond Fee[dB]ack's own (FastAPI + pydantic). The
   Discord IPC bridge in ``discord_ipc.py`` is pure standard library, so there
   is deliberately no ``requirements.txt`` and no ``pip install pypresence``.
-* Discord side: nothing. The plugin ships with the official Fee[dB]ack
+* Discord side: nothing. The plugin ships with the inofficial Fee[dB]ack
   Discord application (``presence.DEFAULT_CLIENT_ID``); users only flip the
   Broadcast switch. A custom Application ID can be set in the panel to use
   your own app (forks / own branding) — it needs Rich Presence art assets
