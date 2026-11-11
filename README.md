@@ -1,12 +1,14 @@
 # Discord Rich Presence for Fee[dB]ack
 
+Readme generated with Claude
+
 Show what you're playing in [Fee[dB]ack](https://github.com/got-feedback/feedBack) on your Discord profile:
 the song, your instrument, your live score, and the album cover. Friends see it in your profile and the
 member list, and it updates as you play, pause, and browse.
 
 ```
 [album cover]  Playing Fee[dB]ack
- [bass icon]   Hidden in the Sand by Tally Hall
+               Hidden in the Sand by Tally Hall
                Bass Guitar • 12,345 pts (98.4%)
                0:15 elapsed
 ```
